@@ -5,19 +5,12 @@ function ExerciseList(){
   const [exercises, setExercises] = useState([])
 
   useEffect(()=>{
-    // async function fetchUsers() {
-    //   setUsers(
-    //     await fetch('http://localhost:5000/users')
-    //     .then( response => response.json()).catch(err => console.log(err, "Fetch Warning!"))
-    //   )
-    // }
     async function fetchExercises() {
       setExercises(
         await fetch('http://localhost:5000/exercises')
         .then( response => response.json()).catch(err => console.log(err, "Fetch Warning!"))
       )
     }
-    // fetchUsers();
     fetchExercises();
   },[])
 
@@ -30,10 +23,12 @@ function ExerciseList(){
       headers: {
       'Content-Type': 'application/json; charset=utf-8'
       },
-    }).then(response => response)
+    }).then(response => {
+      if(response.status === 200) {
+        window.location.href = '/';
+      }
+    })
     .catch(error => error)
-    window.location.href = '/'
-
   }
 
   const handleAction = (e, action, id) => {
