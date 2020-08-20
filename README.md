@@ -19,8 +19,7 @@ Check dependency section of **package.json** for more details
 
 ### Database
 
-MongoDB Cluster0 was used here with Application interfacing through `.env` file.
-Username, password and Database name was removed for obvious reasons.
+MongoDB Cluster0 was used here with Application interfacing through `.env` file. The file was removed because it was conflicting with Github security policy.
 
 ## Frontend
 
